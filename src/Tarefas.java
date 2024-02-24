@@ -22,12 +22,15 @@ public class Tarefas {
                         comandos.verificarTarefa();
                         break;
                     case 4:
-                        comandos.removerTarefa();
+                        comandos.renomearTarefa();
                         break;
                     case 5:
+                        comandos.removerTarefa();
+                        break;
+                    case 6:
                         comandos.removerTudo();
                         break;    
-                    case 6:
+                    case 7:
                         comandos.sair();
                         scanner.close();
                         System.exit(0);

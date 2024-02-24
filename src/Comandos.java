@@ -11,9 +11,10 @@ public class Comandos {
         System.out.println("[1] Adicionar Tarefa");
         System.out.println("[2] Exibir Tarefas");
         System.out.println("[3] Verificar Tarefa");
-        System.out.println("[4] Remover Tarefa Específica");
-        System.out.println("[5] Remover Todas as Tarefas");
-        System.out.println("[6] Sair");
+        System.out.println("[4] Renomear Alguma Tarefa");
+        System.out.println("[5] Remover Tarefa Específica");
+        System.out.println("[6] Remover Todas as Tarefas");
+        System.out.println("[7] Sair");
     }
 
     public void adicionarTarefa() {
@@ -47,6 +48,26 @@ public class Comandos {
                 System.out.println("A tarefa " + tarefa + " existe! A sua posição na lista é: " + indice + ".");
             } else {
                 System.out.println("A tarefa " + tarefa + " não existe na lista!");
+            }
+        } else {
+            System.out.println("A lista de tarefas está vazia.");
+        }
+    }
+
+    public void renomearTarefa() {
+        System.out.println("<<<<< Gerenciador de Tarefas >>>>>");
+        System.out.println("Digite a posição da tarefa na lista: ");
+        int indice = scanner.nextInt() - 1;
+        scanner.nextLine();
+
+        if (!tarefas.isEmpty()) {
+            if (indice >= 0 && indice < tarefas.size()) {
+                System.out.println("Agora, o novo nome da tarefa: ");
+                String nome = scanner.nextLine();
+                tarefas.set(indice, nome);
+                System.out.println("Tarefa renomeada com sucesso!");
+            } else {
+                System.out.println("A posição indicada não existe na lista!");
             }
         } else {
             System.out.println("A lista de tarefas está vazia.");
@@ -90,7 +111,7 @@ public class Comandos {
 
     public void sair() {
         System.out.println("<<<<< Gerenciador de Tarefas >>>>>");
-        System.out.println("Saindo do aplicativo...");
+        System.out.println("Saindo do programa...");
         System.out.println("Obrigado por usar o nosso Gerenciador de Tarefas!");
     }
 }
