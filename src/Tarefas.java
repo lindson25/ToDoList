@@ -20,6 +20,9 @@ public class Tarefas {
                     comandos.removerTarefa();
                     break;
                 case 4:
+                    comandos.removerTudo();
+                    break;    
+                case 5:
                     comandos.sair();
                     scanner.close();
                     System.exit(0);

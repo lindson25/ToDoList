@@ -10,8 +10,9 @@ public class Comandos {
         System.out.println("Selecione uma das opções abaixo: ");
         System.out.println("[1] Adicionar Tarefa");
         System.out.println("[2] Exibir Tarefas");
-        System.out.println("[3] Remover Tarefa");
-        System.out.println("[4] Sair");
+        System.out.println("[3] Remover Tarefa Específica");
+        System.out.println("[4] Remover Todas as Tarefas");
+        System.out.println("[5] Sair");
     }
 
     public void adicionarTarefa() {
@@ -45,6 +46,28 @@ public class Comandos {
             } else {
                 System.out.println("Número de tarefa inválido.");
             }
+        } else {
+            System.out.println("A lista de tarefas está vazia.");
+        }
+    }
+
+    public void removerTudo() {
+        System.out.println("<<<<< Gerenciador de Tarefas >>>>>");
+        System.out.println("Essa opção irá apagar tudo, você tem certeza? (S ou N)");
+        String escolha = scanner.nextLine().toUpperCase();
+
+        if (!tarefas.isEmpty()) {
+            if (escolha.equals("S")) {
+                tarefas.clear();
+                System.out.println("Tarefas removidas com sucesso!");
+            } else if (escolha.equals("N")) {
+                System.out.println("Ok, retornando ao menu principal...");
+            } else {
+                System.out.println("Escolha uma opção válida!");
+                removerTudo();
+            }
+        } else {
+            System.out.println("A lista de tarefas está vazia.");
         }
     }
 
